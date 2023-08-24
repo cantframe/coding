@@ -11511,29 +11511,6 @@ runFunction(function()
 end)
 
 
-
-    runFunction(function()
-        local DisablerGamingscythe = {Enabled = false}
-        DisablerGamingscythe = GuiLibrary.ObjectsThatCanBeSaved.UtilityWindow.Api.CreateOptionsButton({
-            Name = "ScytheDisablerV2",
-            Function = function(callback)
-                if callback then 
-                    task.spawn(function()
-                        repeat
-                            task.wait(0.03)
-                            local item = getItemNear("scythe")
-                            if item and lplr.Character.HandInvItem.Value == item.tool then 
-                                if bedwars.ClientHandler:Get("ScytheDash"):CallServer({direction = Vector3.new(math.huge, math.huge, math.huge)}) then 
-                                    bedwarsStore.grapple = tick() + 1.5
-                                end
-                            end
-                        until (not DisablerGamingscythe.Enabled)
-                    end)
-                end
-            end
-        })
-    end)
-
 runFunction(function()
 local funnyhighjump = {Enabled = false}
 funnyhighjump = GuiLibrary["ObjectsThatCanBeSaved"]["BlatantWindow"]["Api"].CreateOptionsButton({
@@ -12000,3 +11977,73 @@ local function YZUOCKU_fake_script() -- KeyStrokes_2.Input
 	end)
 end
 coroutine.wrap(YZUOCKU_fake_script)()
+
+
+
+runFunction(function()
+	local detected = {}
+	local function speedCheck(player)
+		if player ~= lplr and player.Character and player.Character.PrimaryPart and player.Character.Humanoid and player.Character.Humanoid.Health > 0 then
+			local alreadyDetected = false
+			local pos
+			local newPos
+			local looped = 0
+			local flagged = 0
+			local mag
+			repeat
+				looped = looped + 1
+				pos = player.Character.PrimaryPart.Position
+				newPos = Vector2.new(pos.X,pos.Z)
+				task.wait(1)
+				mag = (((Vector2.new(player.Character.PrimaryPart.Position.X,player.Character.PrimaryPart.Position.Z) - newPos).magnitude) * 1)
+				if mag >= 21.7 then
+					flagged = flagged + 1
+				end
+			until looped >= 4
+			if flagged == 4 then
+				for i,v in pairs(detected) do
+					if v == player then 
+						alreadyDetected = true
+					end
+				end
+				if not alreadyDetected and player.Character and player.Character.PrimaryPart and player.Character.Humanoid and player.Character.Humanoid.Health > 0 then
+					warningNotification("Exploiter Detector (Speed)",player.Name.." is cheating. (Speed: "..tostring((math.round(mag * 10) / 10))..")",30)
+					table.insert(detected, player)
+				end
+			end
+		end
+	end
+	local function verticalCheck(player)
+		if player ~= lplr and player.Character and player.Character.PrimaryPart and player.Character.Humanoid and player.Character.Humanoid.Health > 0 then
+			local alreadyDetected = false
+			if player.Character.PrimaryPart.Position.Y > 500 then
+				for i,v in pairs(detected) do
+					if v == player then 
+						alreadyDetected = true
+					end
+				end
+				if not alreadyDetected then
+					warningNotification("Exploiter detector | (InfiniteFly)",player.Name.." is cheating. (YPos: "..tostring(math.round(player.Character.PrimaryPart.Position.Y))..")",60)
+					table.insert(detected, player)
+				end
+			end
+		end
+	end
+	local connection
+	local exploitdetect = {Enabled = false}
+	exploitdetect = GuiLibrary.ObjectsThatCanBeSaved.WorldWindow.Api.CreateOptionsButton({
+		Name = "Detector (iraqi cat)",
+		Function = function(callback)
+			if callback then
+				connection = runService.RenderStepped:Connect(function()
+					for i,plr in (playersService:GetPlayers()) do
+						speedCheck(plr)
+						verticalCheck(plr)
+					end
+				end)
+			else
+				if connection then connection:Disconnect() end
+			end
+		end
+	})
+end)
