@@ -12047,3 +12047,58 @@ runFunction(function()
 		end
 	})
 end)
+
+
+runFunction(function()
+    local ban = {Enabled = false}
+    ban = GuiLibrary.ObjectsThatCanBeSaved.UtilityWindow.Api.CreateOptionsButton({
+        Name = "NN roaster",
+        Function = function(callback)
+            if callback then
+            task.spawn(function()
+            repeat
+                wait(0.3)
+               warningNotification("Sk1idded", "nn", 5)
+                wait(5)
+               warningNotification("Sk1idded", "skidding is a addiction, not a skill - Iraqi Cat", 5)
+                wait(5)
+                warningNotification("Sk1idded", "no name? RAHH IM ONE TOO!", 5)
+                wait(5)
+                warningNotification("Sk1idded", "lower your tone nn - MuniTM", 5)
+                wait(5)
+                warningNotification("Sk1idded", "I love you Unknown - Sk1idded", 5)
+                wait(5)
+                warningNotification("Sk1idded", "L you dont have my visuals", 5)
+                wait(5)
+               warningNotification("Sk1idded", "@RuckConfigs is a nn fr", 5)
+               wait(5)
+               warningNotification("Sk1idded", "wtf is Skidded Private - 0Prime 😭", 5)
+               wait(5)
+               warningNotification("Sk1idded", "I love you iraqi (no homo)", 5)
+               wait(5)
+               warningNotification("Sk1idded", "Go back to your father NN!", 5)
+               wait(5)
+               warningNotification("Sk1idded", "please be my friend", 5)
+               wait(5)
+               warningNotification("Sk1idded", "NN's are so easy and yummy fr 💀🤮", 5)
+               wait(5)
+               warningNotification("Sk1idded", "your mother's cake was my dessert last night 🙂", 5)
+               wait(5)
+               warningNotification("Sk1idded", "NO HATE TOWARDS ANYONE THIS IS JS A JOKE", 5)
+               wait(5)
+               warningNotification("Sk1idded", "FUCK NN's", 5)
+               wait(5)
+               warningNotification("Sk1idded", "Skidded client's visuals better than novoline?!?!?!(jk i luv u muni)", 5)
+               wait(5)
+               warningNotification("Sk1idded", "ty everyone for the help :P", 5)
+               wait(5)
+               warningNotification("Sk1idded", "I gave you skids the texture pack tut, your welcome 💸", 5)
+               wait(5)
+               warningNotification("Sk1idded", "Iraqi why is your sword so WIDE :skul", 5)
+               wait(5)
+               until not ban.Enabled
+              end)
+            end
+        end
+    })
+end)
