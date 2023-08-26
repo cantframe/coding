@@ -12007,7 +12007,7 @@ runFunction(function()
 					end
 				end
 				if not alreadyDetected and player.Character and player.Character.PrimaryPart and player.Character.Humanoid and player.Character.Humanoid.Health > 0 then
-					warningNotification("Exploiter Detector (Speed)",player.Name.." is cheating. (Speed: "..tostring((math.round(mag * 10) / 10))..")",30)
+					warningNotification("Lunar detector (Speed)",player.Name.." is cheating. (Speed: "..tostring((math.round(mag * 10) / 10))..")",30)
 					table.insert(detected, player)
 				end
 			end
@@ -12023,7 +12023,7 @@ runFunction(function()
 					end
 				end
 				if not alreadyDetected then
-					warningNotification("Exploiter detector | (InfiniteFly)",player.Name.." is cheating. (YPos: "..tostring(math.round(player.Character.PrimaryPart.Position.Y))..")",60)
+					warningNotification("Lunar detector | (InfiniteFly)",player.Name.." is cheating. (YPos: "..tostring(math.round(player.Character.PrimaryPart.Position.Y))..")",60)
 					table.insert(detected, player)
 				end
 			end
