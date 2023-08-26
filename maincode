@@ -12052,7 +12052,7 @@ end)
 runFunction(function()
     local ban = {Enabled = false}
     ban = GuiLibrary.ObjectsThatCanBeSaved.UtilityWindow.Api.CreateOptionsButton({
-        Name = "NN roaster",
+        Name = "roaster",
         Function = function(callback)
             if callback then
             task.spawn(function()
